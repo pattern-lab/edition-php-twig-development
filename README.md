@@ -8,6 +8,7 @@ Pattern Lab uses [Composer](https://getcomposer.org/) to manage project dependen
 
 ### 1. Install Composer 
 
+#### *nix based (OSX, Linux, BSD, etc.)
 To install Composer type the following two lines in the command line:
 
     curl -sS https://getcomposer.org/installer | php
@@ -15,8 +16,20 @@ To install Composer type the following two lines in the command line:
 
 Then close and re-open your command line terminal.
 
-### 2. Install the Development Edition
+**Notes:** 
+- Depending on your system settings, you may need to have root permissions to move `compser.phar` to the `/usr/local/bin` directory. If the above fails due to permissions, run the `mv` line again with `sudo`.
+- In `OSX Yosemite` the `/usr` directory does not exist by default. If you receive the following error: 
 
+        "/usr/local/bin/composer: No such file or directory"
+
+    you must create `/usr/local/bin/` manually before proceeding:
+
+#### Windows
+Download and run [Composer-Setup.exe](https://getcomposer.org/Composer-Setup.exe), it will install the latest version of Composer and set up your `PATH` so that you can just call `composer` from any directory in your command line.
+
+**Note:** Close your current terminal to Test usage. The `PATH` variable only gets loaded when the terminal starts.
+
+### 2. Install the Development Edition
 Use Composer's `create-project` feature to install the Development Edition into a location of your choosing. Type:
 
     cd install/location/
