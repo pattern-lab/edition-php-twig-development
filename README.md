@@ -8,7 +8,7 @@ Pattern Lab uses [Composer](https://getcomposer.org/) to manage project dependen
 
 ### 1. Install Composer 
 
-#### *nix based (OSX, Linux, BSD, etc.)
+#### *nix based systems (OSX, Linux, BSD, etc.)
 To install Composer type the following two lines in the command line:
 
     curl -sS https://getcomposer.org/installer | php
