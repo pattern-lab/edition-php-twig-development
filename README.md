@@ -1,36 +1,43 @@
 # Pattern Lab Development Edition for Twig
 
+> THIS IS A FORK! All deps points to forks on [Drupal Pattern Lab](https://github.com/drupal-pattern-lab) org.
+
 The Development Edition for Twig allows the core team to work on and commit changes to the latest editions of select Twig-related components while running each one within the overall Pattern Lab environment. This edition is **NOT** stable.
 
-[Pattern Lab Standard Edition for Twig](https://github.com/pattern-lab/edition-php-twig-standard) is the stable version. Please start there for all your Twig needs.
+Drupal Pattern Lab fork at [Pattern Lab Standard Edition for Twig](https://github.com/drupal-pattern-lab/edition-php-twig-standard) is the stable version. Please start there for all your Twig needs.
 
 ## Packaged Components
 
-The Development Edition for Twig installs the **`dev` branch** from each of the following components:
+The Development Edition for Twig installs the **`dev` branch** from each of the following components, all forks:
 
-* `pattern-lab/core`: [GitHub](https://github.com/pattern-lab/patternlab-php-core), [Packagist](https://packagist.org/packages/pattern-lab/core)
-* `pattern-lab/patternengine-twig`: [documentation](https://github.com/pattern-lab/patternengine-php-twig#twig-patternengine-for-pattern-lab-php), [GitHub](https://github.com/pattern-lab/patternengine-php-twig), [Packagist](https://packagist.org/packages/pattern-lab/patternengine-twig)
-* `pattern-lab/starterkit-twig-demo`: [GitHub](https://github.com/pattern-lab/starterkit-twig-demo), [Packagist](https://packagist.org/packages/pattern-lab/starterkit-twig-demo)
-* `pattern-lab/styleguidekit-assets-default`: [GitHub](https://github.com/pattern-lab/styleguidekit-assets-default), [Packagist](https://packagist.org/packages/pattern-lab/styleguidekit-assets-default)
-* `pattern-lab/styleguidekit-twig-default`: [GitHub](https://github.com/pattern-lab/styleguidekit-twig-default), [Packagist](https://packagist.org/packages/pattern-lab/styleguidekit-twig-default)
-* `pattern-lab/unified-asset-installer`: [GitHub](https://github.com/pattern-lab/unified-asset-installer), [Packagist](https://packagist.org/packages/pattern-lab/unified-asset-installer)
+* `pattern-lab/core`: [GitHub](https://github.com/drupal-pattern-lab/patternlab-php-core)
+* `pattern-lab/patternengine-twig`: [GitHub](https://github.com/drupal-pattern-lab/patternengine-php-twig)
+* `pattern-lab/starterkit-twig-demo`: [GitHub](https://github.com/drupal-pattern-lab/starterkit-twig-demo)
+* `pattern-lab/styleguidekit-assets-default`: [GitHub](https://github.com/drupal-pattern-lab/styleguidekit-assets-default)
+* `pattern-lab/styleguidekit-twig-default`: [GitHub](https://github.com/drupal-pattern-lab/styleguidekit-twig-default)
+* `pattern-lab/unified-asset-installer`: [GitHub](https://github.com/drupal-pattern-lab/unified-asset-installer)
 
 ## Installing the Development Edition for Twig
 
-Pattern Lab uses [Composer](https://getcomposer.org/) to manage project dependencies. If you are going to use the Development Edition you are required to have Composer installed. 
+Pattern Lab uses [Composer](https://getcomposer.org/) to manage project dependencies. If you are going to use the Development Edition you are required to have Composer installed.
 
-### 1. Install Composer 
+### 1. Install Composer
 
 Please follow the directions for [installing Composer](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx) on the Composer website. We recommend you [install it globally](https://getcomposer.org/doc/00-intro.md#globally).
 
 ### 2. Install the Development Edition
 
-Use Composer's `create-project` feature to install the Development Edition into a location of your choosing. Type:
+After cloning this repo, `cd` into it and run:
 
-    cd install/location/
-    composer create-project pattern-lab/edition-development-twig your-project-name && cd $_
+    composer create-project
 
-This will create a directory called `your-project-name`. It will also install Pattern Lab's default folder structure as well as core, its dependencies, and the select packages as separate Git clones.
+Now, all the dependencies above are in `vendor/pattern-lab` and are repos pointing to the above locations. You'll be able to work on forks of specific dependencies and see how it all works together this way.
+
+### 3. Fix git remotes of dependencies
+
+    composer run fix-git-remotes
+
+See "Update Git Remotes" below for more info on why and what this does.
 
 ## Helpful Commands
 
@@ -77,6 +84,8 @@ To install a specific StarterKit from GitHub type:
     php core/console --starterkit --install <starterkit-vendor/starterkit-name>
 
 ### Update Git Remotes
+
+The command `composer run fix-git-remotes` will do this for you; but here's background that's good to know.
 
 Due to an issue with Composer the default `remote` values for the `dev` branches are set to the wrong locations. This will cause issues if/when you try to push your changes. To update them you must type:
 
@@ -140,4 +149,4 @@ To update the Development Edition's dependencies to use your forked package type
 
 ## Testing Against "Releases"
 
-Packages developed by the core Pattern Lab team use the [gitflow model](http://nvie.com/posts/a-successful-git-branching-model/) of Git repository management. Because the Development Edition clones the repos for each package you can technically switch each package to use the `master` branch to test against the last release of any particular package. 
+Packages developed by the core Pattern Lab team use the [gitflow model](http://nvie.com/posts/a-successful-git-branching-model/) of Git repository management. Because the Development Edition clones the repos for each package you can technically switch each package to use the `master` branch to test against the last release of any particular package.

@@ -1,5 +1,5 @@
 {
-	"name":             "pattern-lab/edition-development-twig",
+	"name":             "drupal-pattern-lab/edition-development-twig",
 	"description":      "The Twig-based development edition of Pattern Lab. Allows one to clone all of the base Pattern Lab repos at once.",
 	"keywords":         ["pattern lab"],
 	"homepage":         "http://patternlab.io",
@@ -23,6 +23,24 @@
 			"PatternLab":   "core/src/"
 		}
 	},
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/drupal-pattern-lab/patternlab-php-core"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/drupal-pattern-lab/patternengine-php-twig"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/drupal-pattern-lab/styleguidekit-assets-default"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/drupal-pattern-lab/styleguidekit-twig-default"
+    }
+  ],
 	"minimum-stability": "dev",
 	"prefer-stable": true,
 	"require": {
@@ -52,6 +70,13 @@
 		],
 		"pre-package-uninstall": [
 			"PatternLab\\Installer::prePackageUninstall"
-		]
+		],
+    "fix-git-remotes": [
+      "cd vendor/pattern-lab/core && git config branch.dev.remote origin",
+      "cd vendor/pattern-lab/patternengine-twig && git config branch.dev.remote origin",
+      "cd vendor/pattern-lab/starterkit-twig-demo && git config branch.dev.remote origin",
+      "cd vendor/pattern-lab/styleguidekit-assets-default && git config branch.dev.remote origin",
+      "cd vendor/pattern-lab/styleguidekit-twig-default && git config branch.dev.remote origin"
+    ]
 	}
 }
