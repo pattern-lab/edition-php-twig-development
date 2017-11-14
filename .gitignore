@@ -1,4 +1,6 @@
 .DS_Store
+.idea
+core
 export/*
 public/*
 source/styleguide/*
