@@ -27,7 +27,7 @@
 	"prefer-stable": true,
 	"require": {
 		"php": ">=5.4",
-		"pattern-lab/composer-plugin": "dev-master",
+		"pattern-lab/composer-plugin": "dev-master as 1.0.0-beta1",
 		"pattern-lab/core": "dev-feature/decoupled-core as 2.8.11",
 		"pattern-lab/patternengine-twig": "dev-develop as 2.1.3",
 		"pattern-lab/starterkit-twig-demo": "dev-develop as 3.0.1",
